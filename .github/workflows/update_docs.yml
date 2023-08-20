@@ -1,3 +1,47 @@
+name: Update Document Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-document:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Update Script
+        run: python update-readme-script.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.email "kmathaliraj@gmail.com"
+          git config --global user.name "Kirag"
+          git add .
+          git commit -m "Update document"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+
+
+
+
+
+
+
 name: Run Python Script
 
 on:
