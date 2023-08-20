@@ -2,7 +2,7 @@
 
 This repository contains a simple GitHub Actions workflow that runs whenever there's a push to the main branch. The workflow prints the current date and time, providing a demonstration of how to trigger workflows on push events.
 
-## Workflow  Details
+## Workflow Details
 
 The workflow is configured to run whenever there's a push to the `main` branch. It uses the `push` event trigger provided by GitHub Actions. When code is pushed to the specified branch, the workflow executes a script that fetches the current date and time and displays it in the workflow logs.
 
