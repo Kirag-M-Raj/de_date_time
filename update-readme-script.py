@@ -1,9 +1,11 @@
 import requests
+import os
 
 # GitHub repository information
 username = "Kirag-M-Raj"
 repo_name = "de_date_time"
 workflow_folder = ".github/workflows"
+
 
 # Fetch the list of workflow files
 response = requests.get(f"https://api.github.com/repos/{username}/{repo_name}/contents/{workflow_folder}")
@@ -24,8 +26,14 @@ with open("README.md", "r") as readme_file:
 
 # Append the generated content to the README
 updated_content = existing_content + "\n" + formatted_content
-print(updated_content)
 
 # Write the updated content back to the README
 with open("README.md", "w") as readme_file:
     readme_file.write(updated_content)
+
+# Commit and push the changes with date and time
+now = datetime.datetime.now()
+commit_message = f"Update README with workflow information ({now.strftime('%Y-%m-%d %H:%M:%S')})"
+os.system("git add README.md")
+os.system(f'git commit -m "{commit_message}"')
+os.system("git push")
