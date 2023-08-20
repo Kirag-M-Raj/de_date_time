@@ -1,8 +1,9 @@
-name: Print Date and Time
+name: Print Date and Time on Push
 
 on:
-  schedule:
-    - cron: "*/1 * * * *" # Runs every 10 minutes
+  push:
+    branches:
+      - main
 
 jobs:
   print-date-time:
