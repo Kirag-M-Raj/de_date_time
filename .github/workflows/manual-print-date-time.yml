@@ -1,0 +1,20 @@
+name: Manual Print Date and Time
+
+on:
+  workflow_run:
+    workflows:
+      - "Scheduled Print Date and Time"
+    types:
+      - completed
+
+jobs:
+  manual-print:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Print Date and Time
+        run: |
+          echo "Current Date and Time: $(date)"
