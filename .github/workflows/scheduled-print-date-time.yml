@@ -2,7 +2,7 @@ name: Scheduled Print Date and Time
 
 on:
   schedule:
-    - cron: "* * * * *" # Runs every minute
+    - cron: "0 * * * *" # Runs every hour
 
 jobs:
   scheduled-print:
