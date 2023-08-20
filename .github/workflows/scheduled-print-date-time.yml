@@ -1,0 +1,17 @@
+name: Scheduled Print Date and Time
+
+on:
+  schedule:
+    - cron: "* * * * *" # Runs every minute
+
+jobs:
+  scheduled-print:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Print Date and Time
+        run: |
+          echo "Current Date and Time: $(date)"
