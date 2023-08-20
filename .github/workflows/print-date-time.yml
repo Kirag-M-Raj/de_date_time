@@ -2,7 +2,7 @@ name: Print Date and Time
 
 on:
   schedule:
-    - cron: "*/10 * * * *" # Runs every 10 minutes
+    - cron: "*/1 * * * *" # Runs every 10 minutes
 
 jobs:
   print-date-time:
