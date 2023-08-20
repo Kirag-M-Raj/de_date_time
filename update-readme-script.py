@@ -24,6 +24,7 @@ with open("README.md", "r") as readme_file:
 
 # Append the generated content to the README
 updated_content = existing_content + "\n" + formatted_content
+print(updated_content)
 
 # Write the updated content back to the README
 with open("README.md", "w") as readme_file:
